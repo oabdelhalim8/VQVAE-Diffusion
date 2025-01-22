@@ -8,9 +8,9 @@ model:
       target: taming.taming_vqvae.Taming_vqvae
       params:
         trainable: False
-        params: ../Vqvae/cfg_maestro_conv2d.yml   # todo
-        ckpt_path: ../Vqvae/runs/checkpoints-exp-20230720/exp-20230720_72.pt # todo
-        spatial_size: [11, 128] # todo
+        params: ../Vqvae/cfg_maestro_conv2d.yml   
+        ckpt_path: ../Vqvae/runs/checkpoints-exp-20230720/exp-20230720_72.pt 
+        spatial_size: [11, 128] 
 
     diffusion_config:      
       target: image_synthesis.modeling.transformers.diffusion_transformer.DiffusionTransformer
@@ -29,7 +29,7 @@ model:
             class_type: 'adalayernorm'
             class_number: 3
             content_seq_len: 1408  # 16 x 16
-            content_spatial_size: [11, 128]  # todo
+            content_spatial_size: [11, 128]  
             n_embd: 512 # the dim of embedding dims   # both this and content_emb_config
             n_head: 8
             attn_pdrop: 0.0
@@ -47,8 +47,8 @@ model:
         content_emb_config:
           target: image_synthesis.modeling.embeddings.dalle_mask_image_embedding.DalleMaskImageEmbedding
           params:
-            num_embed: 128  # todo
-            spatial_size: !!python/tuple [11, 128]  # todo
+            num_embed: 128  
+            spatial_size: !!python/tuple [11, 128]  
             embed_dim: 512
             trainable: True
             pos_emb_type: embedding
@@ -57,9 +57,9 @@ solver:
   base_lr: 3.0e-6
   adjust_lr: none # not adjust lr according to total batch_size
   max_epochs: 10000
-  save_epochs: 10  # todo
+  save_epochs: 10  
   validation_epochs: 10000
-  sample_iterations: 1600  # todo: sample_iterations = train_data_num//batch_size * save_epochs
+  sample_iterations: 1600  # sample_iterations = train_data_num//batch_size * save_epochs
   print_specific_things: True
 
   # config for ema
@@ -99,7 +99,7 @@ dataloader:
   train_datasets: # a list of configures, so we can combine several schedulers
     - target: taming.taming_dataload.MasetroDataset
       params:
-        pkl_path: ../datasets/vqvae_encode_20230720.pkl  # todo
+        pkl_path: ../datasets/vqvae_encode_20230720.pkl  
         is_train: True
 
   validation_datasets:
