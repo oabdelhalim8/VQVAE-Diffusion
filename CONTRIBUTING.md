@@ -24,7 +24,7 @@ oabdelhalim8/omar-music-1  (your working repo on GitHub)
         ▼
 Local machine
         │
-        │  git checkout -b my-feature  (new branch per change)
+        │  git checkout -b add-arabic-data  (or western-experimental-data)
         ▼
 Work → commit → push to omar-music-1
 ```
@@ -78,11 +78,20 @@ Always create a branch off the latest `main` so your work is isolated:
 git checkout main
 git pull origin main
 
-# Create and switch to your new branch in one command
-git checkout -b my-feature-branch
+# For Arabic dataset work:
+git checkout -b add-arabic-data
+
+# For western dataset experiments:
+git checkout -b western-experimental-data
 ```
 
-Use a descriptive name such as `add-arabic-data-western-experiments` or `fix-training-loop`.  
+There are two default workspace branches — pick the one that matches your current task and keep it focused:
+
+| Branch | Purpose |
+|--------|---------|
+| `add-arabic-data` | Adding or processing Arabic music datasets |
+| `western-experimental-data` | Experimenting with western music datasets |
+
 You now have an exact copy of `main` in your new branch — the original code is untouched.
 
 ---
@@ -109,7 +118,8 @@ Commit frequently so each commit represents one logical change.
 ## Step 5 – Push your branch to omar-music-1
 
 ```bash
-git push origin my-feature-branch
+git push origin add-arabic-data
+# (or: git push origin western-experimental-data)
 ```
 
 Your changes are now on **omar-music-1** on GitHub. No pull request to a fork or upstream is needed.
@@ -122,7 +132,8 @@ When your branch is ready, merge it locally and push `main`:
 
 ```bash
 git checkout main
-git merge my-feature-branch
+git merge add-arabic-data
+# (or: git merge western-experimental-data)
 git push origin main
 ```
 
@@ -141,17 +152,18 @@ cd omar-music-1
 git checkout main
 git pull origin main
 
-# Start a new feature
-git checkout -b my-feature-branch
+# Start a feature branch (pick the relevant one)
+git checkout -b add-arabic-data
+# git checkout -b western-experimental-data
 
 # Save work
 git add .
 git commit -m "describe your change"
-git push origin my-feature-branch
+git push origin add-arabic-data
 
 # Merge finished work into main
 git checkout main
-git merge my-feature-branch
+git merge add-arabic-data
 git push origin main
 ```
 
