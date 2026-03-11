@@ -11,7 +11,6 @@ This guide explains how to work on **omar-music-1** — the primary working repo
 
 - All contributions are made in the **local clone of `omar-music-1`**, pushed to `origin` (the same repo on GitHub).
 - The fork (`oabdelhalim8/VQVAE-Diffusion`) is **reference/IP only** — do not open PRs to the fork or upstream.
-- **Upstream remotes are not used in this project.** Do not add an `upstream` remote or run any `git fetch/pull/push` to upstream.
 
 ---
 
@@ -41,6 +40,9 @@ Open a terminal (Git Bash, PowerShell, or the VS Code integrated terminal) and r
 git clone https://github.com/oabdelhalim8/omar-music-1.git
 cd omar-music-1
 ```
+
+> ⚠️ **No upstream remotes**  
+> **Upstream remotes are not used in this project.** Do not add an `upstream` remote or run any `git fetch/pull/push` to upstream.
 
 > **Clone vs Fetch**  
 > `git clone` downloads the entire repository to your machine for the first time.  
